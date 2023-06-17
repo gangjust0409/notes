@@ -1,0 +1,340 @@
+body {
+    margin: 0;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.top_meesage {
+    width: 520px;
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid var(--el-color-primary);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-family: cursive;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 5px;
+    cursor: default;
+    overflow: hidden;
+
+    .fiexd {
+        width: 510px;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+
+        div {
+            position: absolute;
+        }
+    }
+
+}
+
+//layout
+.lqg_layout {
+    height: 100vh;
+
+    .asid {
+        .lqg-aside {
+            position: fixed;
+        }
+    }
+}
+
+.lqg-menu-container {
+    height: 100vh;
+
+    .logo {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        background-color: var(--el-color-primary);
+        color: #fff;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+
+        img {
+            margin: 0 10px;
+        }
+
+        .logo_tit {
+            font-size: 15px;
+        }
+    }
+
+    .menus {
+        display: flex;
+        flex-direction: column;
+        user-select: none;
+        color: #ccc;
+
+        .menu-item {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            cursor: pointer;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.1);
+            }
+
+            &.is-active {
+                color: #fff;
+            }
+
+            i {
+                width: 1.7em;
+                height: 1.7em;
+                margin-right: 5px;
+            }
+
+            span {
+                font-size: 17px;
+                font-family: 'Courier New', Courier, monospace;
+            }
+        }
+
+        .sub-menu {
+
+            .sub-menu-tit {
+                @extend .menu-item;
+                position: relative;
+
+                &:active {
+                    i {
+
+                        &:last-of-type,
+                        &:nth-of-type(2) {
+                            transform: rotate(180deg)
+                        }
+                    }
+                }
+
+                i {
+
+                    &:last-of-type,
+                    &:nth-of-type(2) {
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        transform: rotate(0deg);
+                        transition: transform 0.1s;
+
+                    }
+                }
+            }
+
+            .sub-menu-item {
+                @extend .menu-item;
+                padding-left: 30px;
+            }
+        }
+    }
+}
+
+.menu_bg {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.app-continer {
+    flex: 2;
+
+    .app-header {
+        height: 52px;
+        line-height: 52px;
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            div {
+                margin: 0 3px;
+            }
+
+            .pic {
+
+
+                .el-dropdown {
+
+                    .user_name {
+                        margin: 10px 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        img {
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 5px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .fengche {
+            width: 40px;
+            height: 40px;
+            animation: fengche 1.5s linear infinite;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+    }
+
+    .narbar {
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        background-color: #f6f6f6;
+
+        .narbar-box {
+            display: flex;
+            padding: 10px 5px;
+
+            .narbar-item {
+                cursor: pointer;
+                min-width: 75px;
+                padding: 3px 5px;
+                display: flex;
+                font-size: 14px;
+                align-items: center;
+                margin: 0 5px;
+                background-color: var(--el-color-primary);
+                border-radius: 5px;
+                color: #fff;
+                cursor: pointer;
+
+                i {
+                    margin-left: 3px;
+                }
+            }
+        }
+
+        .left {
+            cursor: pointer;
+        }
+
+        .right {
+            cursor: pointer;
+        }
+
+    }
+
+    .app-box {
+        padding: 15px;
+        height: 480px;
+        overflow: auto;
+    }
+
+    .app-footer {
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        font-size: 14px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .time {
+        position: fixed;
+        bottom: 20px;
+        right: 50px;
+        font-size: 14px;
+        font-family: cursive;
+        color: var(--el-color-primary);
+        font-weight: 600;
+        cursor: default;
+
+        div {
+            &:first-of-type {
+                text-align: center;
+            }
+        }
+    }
+}
+
+// 点击不同菜单
+/*
+  进入和离开动画可以使用不同
+  持续时间和速度曲线。
+*/
+.slide-fade-enter-active {
+    transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
+}
+
+// 顶部名人名言
+.ming-enter-active,
+.ming-leave-active {
+    opacity: 0;
+    transition: all 0.7s ease-in-out;
+}
+
+.ming-enter-form {
+    transform: translateY(10px);
+}
+
+.ming-leave-to {
+    transform: translateY(-10px);
+}
+
+//下拉框
+.combox-enter-active,
+.combox-leave-active {
+    transition: all 0.25s ease-in-out;
+}
+
+.combox-enter-form {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.combox-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+@keyframes fengche {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+    0% {
+        transform: rotate(0deg);
+    }
+}
